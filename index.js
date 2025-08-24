@@ -6,8 +6,11 @@ var port = process.env.PORT || 4000;
 const cookieParser = require('cookie-parser');
 
 app.use(cors({
- origin: 'http://localhost:3000',  // frontend URL
- credentials: true                 // allow cookies to be sent
+ origin: [
+    "http://localhost:3000",            
+    "https://gym-admin-pro.vercel.app"   // production frontend
+  ],
+  credentials: true           
 }));
 
 
