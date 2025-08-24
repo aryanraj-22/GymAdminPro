@@ -85,7 +85,9 @@ npm start
 cd gms-frontend
 npm start
 ```
-## 🧑‍🎓 Developed By
-#### Aryan Raj
-#### 📧 aryan2210raj@gmail.com
+## 🧑‍🎓 Developed By: Aryan Raj
+## 📬 Support
+If you like this project, give it a ⭐ on GitHub.  
+For queries, reach out at **aryan2210raj@gmail.com**
+
 
