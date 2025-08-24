@@ -38,6 +38,20 @@
 - Crypto
 
 ---
+## 📊 Dashboard Overview
+
+The system provides an **interactive dashboard** for gym admins to track member activity and subscription status in real-time.
+
+### Dashboard Features:
+- 👥 **Joined Members** → Total members currently registered
+- 📈 **Monthly Joined** → Members who joined in the current month
+- ⏰ **Expiring within 3 days** → Members whose subscriptions are about to expire soon
+- ⏳ **Expiring within 4–7 days** → Members with subscriptions nearing expiry
+- ❌ **Expired** → Members whose subscriptions have already expired
+- 🚫 **Inactive Members** → Members who are no longer active in the gym
+
+This allows gym admins to easily manage renewals, follow-ups, and ensure smooth operations.
+
 
 ## 📦 Installation
 
