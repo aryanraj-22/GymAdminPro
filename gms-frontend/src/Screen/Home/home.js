@@ -16,12 +16,12 @@ const Home = () => {
 
   return (
     <div className="min-h-screen w-full text-white font-sans">
-      {/* Background */}
+      {}
       <div className="relative bg-gradient-to-r from-green-400 via-blue-400 to-blue-600 min-h-screen">
-        {/* Overlay */}
+        {}
         <div className="absolute inset-0 bg-black opacity-20 "></div>
 
-        {/* Navbar */}
+        {}
         <nav className="relative z-10 flex justify-between items-center px-8 py-5 bg-transparent">
           <div className="text-2xl font-bold flex items-center gap-2 m-4">
             <img
@@ -53,7 +53,7 @@ const Home = () => {
           </div>
         </nav>
 
-        {/* Hero Section */}
+        {}
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-20 pb-10 mt-12">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Manage Your Gym Effortlessly
@@ -72,7 +72,7 @@ const Home = () => {
           )}
         </div>
 
-        {/* Forms Section */}
+        {}
         <div className="relative z-10 flex justify-center items-center px-4 pb-20">
           <div className="w-full max-w-xl">
             {showLogin && <Login />}

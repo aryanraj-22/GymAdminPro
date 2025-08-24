@@ -15,7 +15,7 @@ const GeneralUser = () => {
     },[])
 
     const functionCall = async (funct) =>{
-        // setHeader(funct)
+
         setProgressBar(true)
 
         switch(funct){

@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const cookieOptions = {
     httpOnly: true,
-    secure: false, // Set to true in production
+    secure: false, 
     sameSite: 'Lax'
   
 };
@@ -61,13 +61,13 @@ exports.sendOtp = async (req,res)=>{
         if (!gym) {
             return res.status(400).json({ error: 'Gym not found' });
         }
-        const buffer = crypto.randomBytes(4); // Get random bytes
-        const token = buffer.readUInt32BE(0) % 900000 + 100000; // Modulo to get a 6-digit number
+        const buffer = crypto.randomBytes(4); 
+        const token = buffer.readUInt32BE(0) % 900000 + 100000; 
         gym.resetPasswordToken = token;
-        gym.resetPasswordExpires = Date.now() + 3600000; // 1 hour expiry
+        gym.resetPasswordExpires = Date.now() + 3600000; 
         await gym.save();
 
-        // for email Sending
+        
         const mailOptions = {
             from: 'aryan9639raj@gmail.com',
             to: email,

@@ -23,29 +23,24 @@ exports.getAllMember=async(req,res)=>{
 
 function addMonthsToDate(months,joiningDate) {
     
-    // Get current year, month, and day
+    
     let today = joiningDate;
     const currentYear = today.getFullYear();
-    const currentMonth = today.getMonth(); // Months are 0-indexed
+    const currentMonth = today.getMonth(); 
     const currentDay = today.getDate();
   
-    // Calculate the new month and year
+  
     const futureMonth = currentMonth + months;
     const futureYear = currentYear + Math.floor(futureMonth / 12);
   
-    // Calculate the correct future month (modulus for month)
     const adjustedMonth = futureMonth % 12;
-  
-    // Set the date to the first of the future month
+ 
     const futureDate = new Date(futureYear, adjustedMonth, 1);
-  
-    // Get the last day of the future month
+ 
     const lastDayOfFutureMonth = new Date(futureYear, adjustedMonth + 1, 0).getDate();
   
-    // Adjust the day if current day exceeds the number of days in the new month
     const adjustedDay = Math.min(currentDay, lastDayOfFutureMonth);
-  
-    // Set the final adjusted day
+ 
     futureDate.setDate(adjustedDay);
   
     return futureDate;
@@ -81,7 +76,7 @@ exports.getMemberBySearch=async(req,res)=>{
         const {searchTerm} = req.query;
         const member = await Member.find({gym:req.gym._id,
             $or: [
-                { name: { $regex: '^' + searchTerm, $options: 'i' } },   // Match name starting with the searchTerm
+                { name: { $regex: '^' + searchTerm, $options: 'i' } },  
                 { mobileNo: { $regex: '^' + searchTerm, $options: 'i' } }
               ]
         });
@@ -100,17 +95,15 @@ exports.monthlyMember=async(req,res)=>{
     try{
         const now = new Date();
 
-        // Get the first day of the current month (e.g., 2024-09-01 00:00:00)
         const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
 
-        // Get the last day of the current month (e.g., 2024-09-30 23:59:59)
+    
         const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999);
 
-        // Query for users added in the current month
         const member = await Member.find({gym:req.gym._id,
         createdAt: {
-            $gte: startOfMonth,  // Greater than or equal to the first day of the month
-            $lte: endOfMonth     // Less than or equal to the last day of the month
+            $gte: startOfMonth, 
+            $lte: endOfMonth    
         }
         }).sort({ createdAt: -1 });
 
@@ -127,13 +120,13 @@ exports.monthlyMember=async(req,res)=>{
 
 exports.nextPaymentwithin3Days = async(req,res)=>{
     try{
-        const today = new Date();  // Current date and time
+        const today = new Date();  
         const threeDaysLater = new Date();
         threeDaysLater.setDate(today.getDate() + 3);
         const member = await Member.find({ gym:req.gym._id,
             nextBillDate: {
-              $gte: today,           // Greater than or equal to today
-              $lte: threeDaysLater   // Less than or equal to 3 days from today
+              $gte: today,          
+              $lte: threeDaysLater  
             }
           });
         
@@ -151,18 +144,18 @@ exports.nextPaymentwithin3Days = async(req,res)=>{
 
 exports.checkNextPaymentBetweenFourAndSevenDays = async (req,res) => {
     try {
-      const today = new Date();  // Current date and time
+      const today = new Date(); 
       const threeDaysLater = new Date();
-      threeDaysLater.setDate(today.getDate() + 4);  // Add 3 days to the current date
+      threeDaysLater.setDate(today.getDate() + 4); 
   
       const sevenDaysLater = new Date();
-      sevenDaysLater.setDate(today.getDate() + 7);  // Add 7 days to the current date
+      sevenDaysLater.setDate(today.getDate() + 7);  
   
-      // Query for users where nextPaymentDate is between more than 3 days and less than 7 days from today
+      
       const member = await Member.find({ gym:req.gym._id,
         nextBillDate: {
-          $gt: threeDaysLater,   // Greater than 3 days from today
-          $lt: sevenDaysLater     // Less than 7 days from today
+          $gt: threeDaysLater,   
+          $lt: sevenDaysLater    
         }
       });
       res.status(200).json({
@@ -179,7 +172,7 @@ exports.checkNextPaymentBetweenFourAndSevenDays = async (req,res) => {
   
   exports.expiredMember = async (req,res) => {
     try {
-      const today = new Date();  // Current date and time
+      const today = new Date();  
   
       
       const member = await Member.find({ gym:req.gym._id,status:"Active",

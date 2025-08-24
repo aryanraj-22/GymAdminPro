@@ -77,10 +77,10 @@ const MemberDetails = () => {
     }
 
     const isDateInPast = (inputDate) => {
-        const today = new Date(); // Get the current date
-        const givenDate = new Date(inputDate); // Convert the input to a Date object
+        const today = new Date(); 
+        const givenDate = new Date(inputDate); 
       
-        return givenDate < today; // Check if the given date is before today
+        return givenDate < today; 
       };
 
     return (
