@@ -9,7 +9,7 @@ require('dotenv').config();
 const cookieOptions = {
     httpOnly: true,
     secure: false, 
-    sameSite: 'Lax'
+    sameSite:"none"
   
 };
 
