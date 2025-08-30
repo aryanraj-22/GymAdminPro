@@ -37,7 +37,7 @@ const Dashboard = () => {
     
     return (
         <div className='text-black p-5 relative w-full md:w-3/4'>
-            <div className='w-full bg-slate-900 text-white rounded-lg flex  p-3 justify-between items-center'>
+            <div className='w-full bg-indigo-900 text-white rounded-lg flex  p-3 justify-between items-center'>
                 
                     <MenuIcon sx={{ cursor: "pointer" }} onClick={()=>{setAccordianDashboard(prev=>!prev)}} />
                 
@@ -45,7 +45,7 @@ const Dashboard = () => {
             </div>
 
             {
-                accordianDashboard && <div ref={ref} className=' absolute p-3 bg-slate-900 text-white rounded-xl text-lg font-extralight'>
+                accordianDashboard && <div ref={ref} className=' absolute p-3 bg-indigo-900 text-white rounded-xl text-lg font-extralight'>
                     <div>Hi Welcome to GymAdminPro</div>
                     
                 </div>

@@ -50,20 +50,20 @@ const Sidebar = () => {
           })
     }
   return (
-    <div className='w-1/4 bg-black text-white p-5 flex-col font-extralight text-3xl hidden md:block'>
-        <div className='p-2 text-center'>
+    <div className='w-1/4 bg-indigo-900 text-white p-5 flex-col font-extralight text-3xl hidden md:block'>
+        <div className='text-center text-3xl font-bold text-white mb-4'>
             {gymName}
         </div>
 
         <div className='flex gap-0 p-3 mb-10'>
-            <img className='w-1/3 h-1/3 rounded-full border-white border-2' src={gymProfilePic}/>
+            <img className='w-20 h-20 rounded-full border-2 border-indigo-500 object-cover' src={gymProfilePic}/>
             <div className='flex-col pl-7'>
                 <p className='text-lg'>{greeting}</p>
                 <p className='text-lg font-semibold'>admin</p>
             </div>
         </div>
 
-        <div className='flex-col mt-10 pt-10 border-t-2 border-gray-700'>
+        <div className='flex-col mt-10 pt-10 border-t-2 border-white'>
             <Link to={'/dashboard'} className={`flex gap-5 mb-5 bg-slate-900 ${location.pathname==="/dashboard"?"border-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500":""} rounded-lg p-2 cursor-pointer hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-black hover:border-black`}>
                 <HomeIcon/>
                 <div className='text-lg font-semibold'>
